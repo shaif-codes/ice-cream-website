@@ -41,6 +41,46 @@ header {
     z-index: 1000;
 }
 
+.vertical-slider {
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+    display: flex;
+    flex-direction: column;
+}
+
+.slide {
+    height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    /* background-color: rgba(0, 0, 0, 0); */
+    background: url("../images/bg.webp");
+    padding: 20px;
+    /* Add your styles for each section */
+}
+
+.slider-dots {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+.dot {
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-color: #3498db;
+    border-radius: 50%;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #e74c3c;
+}
+
 .logo1 {
     margin-left: 4%;
 }
@@ -90,7 +130,7 @@ header {
 }
 
 .dot.active {
-    background-color: #e74c3c;
+    background-color: #3ce780;
 }
 
 .menu li {
@@ -299,7 +339,7 @@ section {
     font-weight: bold;
     text-transform: uppercase;
     margin: 0 10px;
-    width: 150px;
+    /* width: 150px; */
     /* height: 25px; */
 }
 
@@ -587,6 +627,18 @@ section {
     .text-content {
         width: 100%;
     }
+
+    /* .offer-item {
+        flex-direction: column;
+    } */
+
+    .service-content {
+        flex-direction: column;
+    }
+
+    .special-offer {
+        height: 120vh;
+    }
 }
 
 
@@ -695,6 +747,8 @@ section {
     align-items: center;
     transition: opacity 0.3s ease;
 }
+
+
 
 /* Add this CSS to make image info div visible on hover */
 .card:hover .image-info {
@@ -1062,3 +1116,28 @@ form .icon {
     background-size: 100% 100%;
     transform: translateY(-0.15em);
 }
+
+.nonslider {
+    display: none;
+}
+
+@media screen and (max-width: 813px) {
+
+    .nonslider {
+        display: "flex";
+    }
+
+    .vertical-slider {
+        display: none;
+    }
+}
+
+/* @media screen and (min-width: 813px) {
+    .nonslider {
+        display: none;
+    }
+
+    .vertical-slider {
+        display: "block";
+    }
+} */

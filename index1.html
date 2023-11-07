@@ -4,75 +4,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Coneflower Creamery</title>
-    <link rel="stylesheet" href="styles.css">
+
+    <title>Loading...</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            /* background-image: url("images/ice_cream_loader.gif");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            scroll-behavior: smooth; */
+
+        }
+
+        .loading-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(143deg, #fedfa6, #fa798e);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-image {
+            width: 100px;
+        }
+
+        #loading-text {
+            position: absolute;
+            bottom: 177px;
+            color: white;
+            font-size: 24px;
+
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Header Section -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">Locations</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-        <h1>Coneflower Creamery</h1>
-    </header>
+    <div class="loading-container">
+        <img src="images/ice_cream_loader.gif" alt="">
+        <div id="loading-text"></div>
+    </div>
 
-    <!-- Banner Section -->
-    <section class="banner">
-        <div class="slider">
-            <div class="slide">
-                <img src="images/templateBackgroud.gif" alt="Ice Cream Slide 1">
-                <div class="slide-content">
-                    <h2>Discover Irresistible Flavors</h2>
-                    <p>Indulge in our delectable ice creams crafted with love.</p>
-                    <a href="#" class="cta-button">View Menu</a>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="images/banner_slide2.jpg" alt="Ice Cream Slide 2">
-                <div class="slide-content">
-                    <h2>Join Us for a Sweet Treat</h2>
-                    <p>Experience the joy of our unique ice cream creations.</p>
-                    <a href="#" class="cta-button">Order Now</a>
-                </div>
-            </div>
-            <!-- Add more slides as needed -->
-        </div>
-    </section>
+    <script>
+        const messages = [
+            "Brain freeze incoming!",
+            "Just chillin’ while we load",
+            "We’re scooping up some sweetness for you.",
+            "Our ice cream is worth the wait.",
+            "We’re getting the sprinkles ready!",
+            "We’re churning up something special.",
+            "We’re freezing the competition.",
+            "We’re working hard to keep you cool.",
+            "We’re making sure your ice cream is perfect.",
+            "We’re getting the cones ready!",
+        ];
+        var index = 0;
+        const id = setInterval(() => {
+            document.getElementById("loading-text").innerHTML = messages[index] + "...";
+            index++;
+            if (index >= 10)
+                index = 0;
+        }, 700);
 
+        setTimeout(function () {
+            clearInterval(id);
+            window.location.href = 'main.html'; // Redirect to your main page
+        }, 3000);
 
-    <!-- Featured Flavors Section -->
-    <section class="featured-flavors">
-        <h2>Featured Flavors</h2>
-        <div class="flavor-card">
-            <img src="images/flavor1.jpeg" alt="Flavor 1">
-            <h3>Vanilla Bean</h3>
-            <p>A classic favorite made with real vanilla beans.</p>
-        </div>
-        <!-- Repeat flavor-card elements for other featured flavors -->
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter">
-        <h2>Subscribe to Our Newsletter</h2>
-        <p>Stay updated with the latest flavors and special offers.</p>
-        <form action="subscribe.php" method="post">
-            <input type="email" name="email" placeholder="Your Email Address" required>
-            <button type="submit">Subscribe</button>
-        </form>
-    </section>
-
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2023 Coneflower Creamery</p>
-    </footer>
+    </script>
 </body>
+
+</html>
+
 
 </html>

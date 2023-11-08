@@ -920,9 +920,16 @@
 
             window.addEventListener("wheel", (e) => {
                 if (e.deltaY > 0 && currentSlide < slides.length - 1) {
+                    dots[currentSlide].classList.remove("active");
                     scrollToSlide(currentSlide + 1);
+                    // currentSlide += 1;
+                    dots[currentSlide + 1].classList.add("active");
+
                 } else if (e.deltaY < 0 && currentSlide > 0) {
+                    dots[currentSlide].classList.remove("active");
                     scrollToSlide(currentSlide - 1);
+                    // currentSlide -= 1;
+                    dots[currentSlide - 1].classList.add("active");
                 }
             });
 
